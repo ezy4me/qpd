@@ -1,0 +1,146 @@
+$blob-color: linear-gradient(90deg, rgb(0, 224, 255) 0%, rgb(88, 30, 255) 100%);
+$blob-count: 30;
+
+.header {
+    position: relative;
+    overflow: hidden;
+
+    &__container {
+        margin: 0 60px;
+    }
+
+    &__top {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: flex-start;
+        z-index: 1;
+
+        .logo {
+            justify-self: start;
+        }
+
+        .nav {
+            justify-self: center;
+        }
+
+        .theme {
+            justify-self: end;
+            margin-top: 6px;
+        }
+    }
+
+    &__middle {
+        width: 100%;
+        height: 600px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    background: $bg-dark-2;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 32px;
+        gap: 32px;
+    }
+
+    &__list-item {
+        text-transform: uppercase;
+        color: white;
+
+        .button {
+            min-width: inherit;
+            padding: 12px 24px;
+        }
+    }
+}
+
+.logo {
+    cursor: pointer;
+}
+
+@function random-size($min, $max) {
+    @return $min + random($max - $min);
+}
+
+@mixin blob-style($index) {
+    $width: random-size(50px, 150px);
+    $height: random-size(50px, 120px);
+    $left: random(100) + 1%;
+    $bottom: 0;
+    $animation-delay: random(10) * 0.5s;
+    $animation-duration: random(10) * 1s + 5s;
+
+    width: $width;
+    height: $height;
+    left: $left;
+    bottom: $bottom;
+    animation: wobble $animation-duration ease-in-out alternate infinite;
+
+    transform: translateX(-$left);
+}
+
+@keyframes wobble {
+    0% {
+        transform: translateY(100%);
+    }
+    50% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    }
+    75% {
+        border-radius: 38% 52% 75% 36% / 50% 40% 50% 60%;
+    }
+    100% {
+        transform: translateY(-600%);
+    }
+}
+
+/* Lava Lamp Styles */
+.lava-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+    width: 100vw;
+}
+
+.lava {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: url("#goo");
+
+    .blob {
+        position: absolute;
+        border-radius: 50%;
+        background: $blob-color;
+        opacity: 1;
+        mix-blend-mode: multiply;
+
+        @for $i from 1 through $blob-count {
+            &.blob-#{$i} {
+                @include blob-style($i);
+            }
+        }
+    }
+}
