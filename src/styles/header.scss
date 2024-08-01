@@ -6,7 +6,7 @@ $blob-count: 30;
     overflow: hidden;
 
     &__container {
-        margin: 0 60px;
+        margin: 0 20px;
     }
 
     &__top {
@@ -140,6 +140,18 @@ $blob-count: 30;
         @for $i from 1 through $blob-count {
             &.blob-#{$i} {
                 @include blob-style($i);
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .header {
+        &__top {
+            grid-template-columns: 1fr 1fr;
+
+            .theme {
+                display: none;
             }
         }
     }

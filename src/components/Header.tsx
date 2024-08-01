@@ -1,9 +1,9 @@
-'use client'
-
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import MobileNav from "./MobileNav";
 
 export const Header = () => {
   const router = useRouter();
@@ -52,6 +52,7 @@ export const Header = () => {
               alt="light theme"
             />
           </div>
+          <MobileNav />
         </div>
         <div className="header__middle">
           <h1 className="title">

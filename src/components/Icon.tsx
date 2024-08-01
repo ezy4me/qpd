@@ -35,14 +35,13 @@ export const Icon: React.FC<IconProps> = ({
   useEffect(() => {
     const loadSvg = async () => {
       try {
-        const svgModule = await import(`/public/${name}.svg`);
+        const svgModule = await import(`/public/icons/${name}.svg`);
         const svgContent = svgModule.default;
-        // svgRef.current!.innerHTML = replaceColor(svgContent, color);
-        // svgRef.current!.innerHTML = replaceStroke(
-        //   svgRef.current!.innerHTML,
-        //   stroke
-        // );
-        svgRef.current!.innerHTML = svgContent
+        svgRef.current!.innerHTML = replaceColor(svgContent, color);
+        svgRef.current!.innerHTML = replaceStroke(
+          svgRef.current!.innerHTML,
+          stroke
+        );
       } catch (error) {
         console.error(`Error loading SVG '${name}':`, error);
       }

@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { Icon } from "./Icon";
 
 const services = [
   {
@@ -144,6 +143,7 @@ export const ServicesGrid = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="search-bar"
         />
+        {/* <Icon name="search" width={40} height={40} color="var(--bg-primary)" /> */}
       </div>
 
       <div className="grid">
