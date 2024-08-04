@@ -10,13 +10,6 @@ export const Header = () => {
 
   return (
     <header className="header">
-      <div className="lava-container">
-        <div className="lava">
-          {[...Array(30)].map((_, index) => (
-            <div key={index} className={`blob blob-${index + 1}`}></div>
-          ))}
-        </div>
-      </div>
       <div className="header__container">
         <div className="header__top">
           <div className="logo">
@@ -54,34 +47,7 @@ export const Header = () => {
           </div>
           <MobileNav />
         </div>
-        <div className="header__middle">
-          <h1 className="title">
-            Превратим вашу <span>идею в</span> цифровую <span>реальность</span>
-          </h1>
-          <button className="button button--filled">
-            Заказать
-            <Image src={"/images/arrow.svg"} width={60} height={60} alt="" />
-          </button>
-        </div>
       </div>
-      <svg>
-        <defs>
-          <filter id="goo">
-            <feGaussianBlur
-              in="SourceGraphic"
-              stdDeviation="10"
-              result="blur"
-            />
-            <feColorMatrix
-              in="blur"
-              mode="matrix"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
-              result="goo"
-            />
-            <feBlend in="SourceGraphic" in2="goo" />
-          </filter>
-        </defs>
-      </svg>
     </header>
   );
 };

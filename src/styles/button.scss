@@ -32,12 +32,14 @@
     background-size: 0% 100%;
     transition:
         background-size 0.3s,
+        transform 0.5s,
         color 0.5s;
 
     &:hover,
     &:focus {
         background-size: 100% 100%;
         color: #fff;
+        transform: scale(1.02);
     }
 
     img {
@@ -48,7 +50,7 @@
     }
 
     &--filled {
-        background: $bg-dark-2;
+        background-color: $bg-dark-2;
     }
 
     &--outlined {
