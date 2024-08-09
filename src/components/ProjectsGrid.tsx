@@ -1,4 +1,7 @@
-import React from "react";
+'use client'
+
+import React, { useState } from "react";
+import { Icon } from "./Icon";
 
 const projects = [
   {
@@ -34,28 +37,53 @@ const projects = [
 ];
 
 export const ProjectsGrid = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
-    <div className="projects-grid">
-      {projects.map((project) => (
-        <div
-          key={project.id}
-          className="project"
-          style={{ backgroundImage: `url(${project.image})` }}>
-          <div className="project-info">
-            <div className="project-info__tags">
-              {project.tags.map((tag) => (
-                <div key={tag} className="tag">
-                  {tag}
-                </div>
-              ))}
-            </div>
-            <div className="project-info__actions">
-              <p className="project-time">{project.time}</p>
-              <button className="button button--outlined">Смотреть</button>
-            </div>
+    <div className="projects">
+      <div className="projects__container">
+        <div className="projects__info">
+          <p className="subtitle">5 из 8</p>
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Поиск..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-bar"
+            />
+            <Icon
+              className="search-icon"
+              name="search"
+              width={32}
+              height={32}
+              color="var(--bg-primary)"
+            />
           </div>
         </div>
-      ))}
+        <div className="projects-grid">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="project"
+              style={{ backgroundImage: `url(${project.image})` }}>
+              <div className="project-info">
+                <div className="project-info__tags">
+                  {project.tags.map((tag) => (
+                    <div key={tag} className="tag">
+                      {tag}
+                    </div>
+                  ))}
+                </div>
+                <div className="project-info__actions">
+                  <p className="project-time">{project.time}</p>
+                  <button className="button button--outlined">Смотреть</button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

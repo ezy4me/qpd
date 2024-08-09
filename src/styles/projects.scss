@@ -1,3 +1,30 @@
+.projects {
+  &__container {
+    width: 100%;
+    background: $bg-dark;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 20px;
+    padding: 20px 0;
+
+    .search-container {
+      width: 30%;
+
+      @media (max-width: 768px) {
+        width: 50%;
+      }
+
+      @media (max-width: 475px) {
+        width: 70%;
+      }
+    }
+  }
+}
+
 .projects-grid {
   background: $bg-dark;
   display: grid;
