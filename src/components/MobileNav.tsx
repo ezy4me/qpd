@@ -1,22 +1,32 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Icon } from "./Icon";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [icon, setIcon] = useState("sun");
 
   const toggleNav = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    const hour = new Date().getHours();
+    if (hour >= 6 && hour < 20) {
+      setIcon("sun");
+    } else {
+      setIcon("moon");
+    }
+  }, []);
 
   return (
     <div className={`mobile-nav ${isOpen ? "open" : ""}`}>
       <button className="mobile-nav-toggle" onClick={toggleNav}>
         <Icon
           name={isOpen ? "close" : "menu"}
-          width={40}
-          height={40}
+          width={32}
+          height={32}
           color="--bg-primary"
           className={`icon ${isOpen ? "close" : ""}`}
         />
@@ -31,6 +41,9 @@ const MobileNav = () => {
           </li>
           <li>
             <Link href="/about">О студии</Link>
+          </li>
+          <li>
+            <Icon name={icon} height={32} width={32} />
           </li>
         </ul>
       </nav>

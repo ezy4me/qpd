@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { Icon } from "./Icon";
 
 const services = [
   {
@@ -123,13 +124,12 @@ const services = [
 
 export const ServicesGrid = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [visibleCount, setVisibleCount] = useState(8); // Начальное количество отображаемых услуг
+  const [visibleCount, setVisibleCount] = useState(8); 
 
   const filteredServices = services.filter((service) =>
     service.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Сохраняем общее количество отображаемых услуг
   const totalServices = filteredServices.length;
 
   return (
@@ -143,7 +143,7 @@ export const ServicesGrid = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="search-bar"
         />
-        {/* <Icon name="search" width={40} height={40} color="var(--bg-primary)" /> */}
+        <Icon className="search-icon" name="search" width={32} height={32} color="var(--bg-primary)" />
       </div>
 
       <div className="grid">

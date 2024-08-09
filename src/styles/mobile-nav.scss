@@ -2,7 +2,7 @@
     display: none;
     background: $bg-dark;
     border-bottom-left-radius: 32px;
-    padding: 12px 32px;
+    padding: 12px 12px;
     transition: all 0.2s ease-in-out;
     z-index: 9999;
 }
@@ -22,7 +22,7 @@
 
 .mobile-nav-menu {
     position: fixed;
-    top: 100%;
+    top: 60px;
     right: 0;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -36,21 +36,30 @@
 .mobile-nav-menu.open {
     max-height: 300px;
     transition: max-height 0.3s ease-in-out;
+    border-bottom-left-radius: 32px;
+    padding: 12px;
 }
 
 .mobile-nav-menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .mobile-nav-menu li {
     border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+
 }
 
 .mobile-nav-menu li a {
     display: block;
-    padding: 1rem;
     text-decoration: none;
     color: #333;
 }

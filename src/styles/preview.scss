@@ -63,7 +63,6 @@ $blob-count: 10;
     }
 }
 
-/* Lava Lamp Styles */
 .lava-container {
     position: absolute;
     top: 0;
@@ -87,13 +86,29 @@ $blob-count: 10;
         position: absolute;
         border-radius: 50%;
         background: $blob-color;
-        opacity: .7;
+        opacity: 0.7;
         mix-blend-mode: multiply;
 
         @for $i from 1 through $blob-count {
             &.blob-#{$i} {
                 @include blob-style($i);
             }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .preview {
+        .subtitle {
+            width: 80%;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .preview {
+        .subtitle {
+            width: 100%;
         }
     }
 }

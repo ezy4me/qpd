@@ -1,12 +1,23 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import MobileNav from "./MobileNav";
+import { Icon } from "./Icon";
 
 export const Header = () => {
   const router = useRouter();
+  const [icon, setIcon] = useState("sun");
+
+  useEffect(() => {
+    const hour = new Date().getHours();
+    if (hour >= 6 && hour < 20) {
+      setIcon("sun");
+    } else {
+      setIcon("moon");
+    }
+  }, []);
 
   return (
     <header className="header">
@@ -35,15 +46,8 @@ export const Header = () => {
               <div className="nav__list-item">
                 <button className="button">Заявка</button>
               </div>
+              <Icon name={icon} height={40} width={40} />
             </div>
-          </div>
-          <div className="theme">
-            <Image
-              src="/images/sun.png"
-              height={40}
-              width={40}
-              alt="light theme"
-            />
           </div>
           <MobileNav />
         </div>
