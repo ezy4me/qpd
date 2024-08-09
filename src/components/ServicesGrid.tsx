@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Icon } from "./Icon";
-
+import { LavaBackground } from "./LavaBackground";
 const services = [
   {
     id: 1,

@@ -37,7 +37,7 @@
   }
 
   .service-card {
-    background: $bg-dark-2;
+    background: $gradient-dark;
     padding: 20px;
     border-radius: 16px;
     transition:
@@ -51,6 +51,8 @@
     position: relative;
     cursor: pointer;
     overflow: hidden;
+    background-size: 200% 200%;
+    animation: rotateGradient 3s linear infinite; 
 
     &::before {
       content: "";
@@ -63,6 +65,8 @@
       transition: opacity 0.3s ease-in-out;
       opacity: 0;
       z-index: 0;
+      background-size: 200% 200%;
+      animation: rotateGradient 2s linear infinite; 
     }
 
     h2 {
@@ -117,5 +121,17 @@
         opacity: 1;
       }
     }
+  }
+}
+
+@keyframes rotateGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
