@@ -57,7 +57,7 @@ export const ProjectsGrid = () => {
               name="search"
               width={32}
               height={32}
-              color="var(--bg-primary)"
+              color="--bg-primary"
             />
           </div>
         </div>

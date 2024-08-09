@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { Icon } from "./Icon";
 
 interface BubbleProps {
   size: string;
@@ -63,7 +64,15 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer__logo">
-          <p>qpd</p>
+          <div className="logo">
+            <Icon
+              onClick={() => router.push("/")}
+              name="logo"
+              height={80}
+              width={160}
+              color="--color-light"
+            />
+          </div>
           <p>quality product design</p>
         </div>
         <div className="footer__socials">

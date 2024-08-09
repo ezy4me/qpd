@@ -124,7 +124,7 @@ const services = [
 
 export const ServicesGrid = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [visibleCount, setVisibleCount] = useState(8); 
+  const [visibleCount, setVisibleCount] = useState(8);
 
   const filteredServices = services.filter((service) =>
     service.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -133,32 +133,42 @@ export const ServicesGrid = () => {
   const totalServices = filteredServices.length;
 
   return (
-    <div className="services-grid">
-      <h1 className="services-title title">Наши услуги</h1>
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Поиск услуг..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="search-bar"
-        />
-        <Icon className="search-icon" name="search" width={32} height={32} color="var(--bg-primary)" />
-      </div>
-
-      <div className="grid">
-        {filteredServices.slice(0, visibleCount).map((service) => (
-          <div key={service.id} className="service-card">
-            <h2>{service.title}</h2>
-            <p className="service-description">{service.description}</p>
+    <div className="services">
+      <div className="services__container">
+        <div className="services-grid">
+          <h1 className="services-title title">Наши услуги</h1>
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Поиск услуг..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-bar"
+            />
+            <Icon
+              className="search-icon"
+              name="search"
+              width={32}
+              height={32}
+              color="var(--bg-primary)"
+            />
           </div>
-        ))}
-      </div>
-      <div className="services-info">
-        <p>{`Показано ${Math.min(
-          visibleCount,
-          totalServices
-        )} из ${totalServices}`}</p>
+
+          <div className="grid">
+            {filteredServices.slice(0, visibleCount).map((service) => (
+              <div key={service.id} className="service-card">
+                <h2>{service.title}</h2>
+                <p className="service-description">{service.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="services-info">
+            <p>{`Показано ${Math.min(
+              visibleCount,
+              totalServices
+            )} из ${totalServices}`}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

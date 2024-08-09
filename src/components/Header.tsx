@@ -23,17 +23,19 @@ export const Header = () => {
     <header className="header">
       <div className="header__container">
         <div className="header__top">
-          <div className="logo">
-            <Image
-              onClick={() => router.push("/")}
-              src="/images/logo.png"
-              height={80}
-              width={160}
-              alt="qpd logo"
-            />
-          </div>
           <div className="nav">
             <div className="nav__list">
+              <div className="nav__list-item">
+                <div className="logo">
+                  <Icon
+                    onClick={() => router.push("/")}
+                    name="logo"
+                    height={40}
+                    width={80}
+                    color="--color-light"
+                  />
+                </div>
+              </div>
               <div className="nav__list-item">
                 <Link href="/portfolio">Портфолио</Link>
               </div>

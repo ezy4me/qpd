@@ -2,8 +2,11 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Icon } from "./Icon";
+import { useRouter } from "next/navigation";
 
 const MobileNav = () => {
+  const router = useRouter();
+
   const [isOpen, setIsOpen] = useState(false);
   const [icon, setIcon] = useState("sun");
 
@@ -22,6 +25,15 @@ const MobileNav = () => {
 
   return (
     <div className={`mobile-nav ${isOpen ? "open" : ""}`}>
+      <div className="logo">
+        <Icon
+          onClick={() => router.push("/")}
+          name="logo"
+          height={32}
+          width={80}
+          color="--color-light"
+        />
+      </div>
       <button className="mobile-nav-toggle" onClick={toggleNav}>
         <Icon
           name={isOpen ? "close" : "menu"}
@@ -31,6 +43,7 @@ const MobileNav = () => {
           className={`icon ${isOpen ? "close" : ""}`}
         />
       </button>
+
       <nav className={`mobile-nav-menu ${isOpen ? "open" : ""}`}>
         <ul>
           <li>

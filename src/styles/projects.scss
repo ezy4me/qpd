@@ -2,14 +2,16 @@
   &__container {
     width: 100%;
     background: $bg-dark;
+    padding: 120px 0;
   }
 
   &__info {
+    max-width: 1200px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 20px;
-    padding: 20px 0;
+    margin: 0 auto;
+    padding: 20px;
 
     .search-container {
       width: 30%;
@@ -31,7 +33,6 @@
   gap: 32px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, auto);
-  padding: 120px 0;
 
   @media (max-width: 1200px) {
     grid-template-columns: repeat(2, 1fr);
