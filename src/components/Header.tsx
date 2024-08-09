@@ -1,14 +1,17 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import MobileNav from "./MobileNav";
 import { Icon } from "./Icon";
+import Modal from "./Modal";
 
 export const Header = () => {
   const router = useRouter();
   const [icon, setIcon] = useState("sun");
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const hour = new Date().getHours();
@@ -46,7 +49,7 @@ export const Header = () => {
                 <Link href="/about">О студии</Link>
               </div>
               <div className="nav__list-item">
-                <button className="button">Заявка</button>
+                <button className="button" onClick={() => setShowModal(true)}>Заявка</button>
               </div>
               <Icon name={icon} height={40} width={40} />
             </div>
@@ -54,6 +57,7 @@ export const Header = () => {
           <MobileNav />
         </div>
       </div>
+      <Modal showModal={showModal} setShowModal={setShowModal} />
     </header>
   );
 };
