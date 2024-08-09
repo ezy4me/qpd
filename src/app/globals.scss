@@ -10,6 +10,10 @@
   --color-dark: #000000;
 }
 
+html {
+  scroll-behavior: smooth !important;
+ }
+
 ::selection {
   background: #00e0ff;
 }
