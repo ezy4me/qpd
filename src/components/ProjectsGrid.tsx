@@ -1,6 +1,7 @@
-'use client'
+"use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Icon } from "./Icon";
 
 const projects = [
@@ -38,6 +39,11 @@ const projects = [
 
 export const ProjectsGrid = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const router = useRouter();
+
+  const handleViewProject = (id: number) => {
+    router.push(`/portfolio/${id}`);
+  };
 
   return (
     <div className="projects">
@@ -77,7 +83,11 @@ export const ProjectsGrid = () => {
                 </div>
                 <div className="project-info__actions">
                   <p className="project-time">{project.time}</p>
-                  <button className="button button--outlined">Смотреть</button>
+                  <button
+                    className="button button--outlined"
+                    onClick={() => handleViewProject(project.id)}>
+                    Смотреть
+                  </button>
                 </div>
               </div>
             </div>
