@@ -38,8 +38,9 @@ const projects = [
 ];
 
 export const ProjectsGrid = () => {
-  const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
+
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleViewProject = (id: number) => {
     router.push(`/portfolio/${id}`);

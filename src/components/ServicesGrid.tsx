@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { Icon } from "./Icon";
-import { LavaBackground } from "./LavaBackground";
+import { useRouter } from "next/navigation";
+
 const services = [
   {
     id: 1,
@@ -123,12 +124,18 @@ const services = [
 ];
 
 export const ServicesGrid = () => {
+  const router = useRouter();
+
   const [searchTerm, setSearchTerm] = useState("");
   const [visibleCount, setVisibleCount] = useState(8);
 
   const filteredServices = services.filter((service) =>
     service.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const handleViewService = (id: number) => {
+    router.push(`/services/${id}`);
+  };
 
   const totalServices = filteredServices.length;
 
@@ -156,7 +163,10 @@ export const ServicesGrid = () => {
 
           <div className="grid">
             {filteredServices.slice(0, visibleCount).map((service) => (
-              <div key={service.id} className="service-card">
+              <div
+                key={service.id}
+                className="service-card"
+                onClick={() => handleViewService(service.id)}>
                 <h2>{service.title}</h2>
                 <p className="service-description">{service.description}</p>
               </div>
