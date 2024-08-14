@@ -140,7 +140,7 @@ export const ServicesGrid = () => {
   const totalServices = filteredServices.length;
 
   return (
-    <div className="services">
+    <div id="services" className="services">
       <div className="services__container">
         <div className="services-grid">
           <h1 className="services-title title">Наши услуги</h1>

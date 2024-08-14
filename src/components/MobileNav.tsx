@@ -50,7 +50,7 @@ const MobileNav = () => {
             <Link href="/portfolio">Портфолио</Link>
           </li>
           <li>
-            <Link href="/services">Услуги</Link>
+            <Link href="/#services">Услуги</Link>
           </li>
           <li>
             <Link href="/about">О студии</Link>

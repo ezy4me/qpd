@@ -43,7 +43,7 @@ export const Header = () => {
                 <Link href="/portfolio">Портфолио</Link>
               </div>
               <div className="nav__list-item">
-                <Link href="/services">Услуги</Link>
+                <Link href="/#services">Услуги</Link>
               </div>
               <div className="nav__list-item">
                 <Link href="/about">О студии</Link>

@@ -46,9 +46,9 @@
         }
 
         &__divider {
-            height: 50%;
-            width: 8px;
-            background-color: $bg-dark;
+            // height: 50%;
+            // width: 8px;
+            // background-color: $bg-dark;
         }
 
         &__content {
@@ -124,12 +124,25 @@
     .popular-card {
         flex-direction: column;
 
+        &__title {
+            font-size: 24px !important;
+        }
+
         &__content {
             gap: 24px;
         }
+
         &__actions {
             flex-direction: column-reverse;
             align-items: flex-start !important;
+            .button {
+                width: 100%;
+            }
+        }
+
+        &__time {
+            width: 100%;
+            text-align: end;
         }
     }
 }

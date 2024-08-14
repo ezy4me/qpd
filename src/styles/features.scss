@@ -43,7 +43,7 @@
             top: 0;
             left: 0;
             background: $bg-primary;
-            opacity: 0.5;
+            opacity: 0.8;
         }
 
         @media (max-width: 1140px) {
@@ -83,11 +83,21 @@
     }
 
     &__title {
-        font-size: 32px;
-        margin-bottom: 10px;
+        font-size: 4rem;
         z-index: 1;
-        color: black;
+        color: $color-light-2;
         font-weight: 900;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        letter-spacing: 1rem;
+        background: $bg-dark;
+        padding: 10px;
+        height: 100%;
+        text-align: center;
+
+        @media (max-width: 768px) {
+            font-size: 1.5rem;
+        }
     }
 
     &__description {
